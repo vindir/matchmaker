@@ -13,14 +13,23 @@ class Recommender():
         self.dataset = dataset
         self.my_picks = my_picks
 
-    def make_me_a_match(self):
+    def make_me_a_match(self, scores=None):
         matches = {}
+        if not scores:
+          scores = self.my_picks
         for reviewer in self.dataset:
-          matches[reviewer] = self.measures.euclidean_distance(my_picks, reviewers[reviewer])
+          #matches[reviewer] = self.measures.euclidean_distance(scores, reviewers[reviewer])
+          matches[reviewer] = self.measures.cosine_similarity(scores, reviewers[reviewer])
 
         sorted_matches = sorted(matches.items(), key=operator.itemgetter(1))
-        return sorted_matches[0][0]
-        
+        #return sorted_matches[0][0]
+        return sorted_matches
+
+    def distance_matrix(self):
+        distance_matrix = {}
+        for reviewer in self.dataset:
+          distance_matrix[reviewer] = self.make_me_a_match(self.dataset[reviewer])
+        return distance_matrix
 
 movies = [ 'Moana', 'Frying Nemo', 'Pocahontas', 'ToyStory', 'LionKing', 'Frozen' ]
 reviewers = {
@@ -38,3 +47,5 @@ matchmaker = Recommender(reviewers, my_picks)
 favorite_reviewer = matchmaker.make_me_a_match()
 print favorite_reviewer
 
+import pprint
+pprint.pprint(matchmaker.distance_matrix())
