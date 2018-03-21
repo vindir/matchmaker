@@ -4,6 +4,7 @@
 # recommendations from a given data set
 
 from similaritymeasures import Similarity
+import operator
 
 class Recommender():
     """ What kind of recommender am I?  The existential question remains. """
@@ -12,8 +13,13 @@ class Recommender():
         self.dataset = dataset
         self.my_picks = my_picks
 
-    def make_me_match(self):
-        self.matches = map(self.measures.euclidean_distance, (my_picks, self.dataset))
+    def make_me_a_match(self):
+        matches = {}
+        for reviewer in self.dataset:
+          matches[reviewer] = self.measures.euclidean_distance(my_picks, reviewers[reviewer])
+
+        sorted_matches = sorted(matches.items(), key=operator.itemgetter(1))
+        return sorted_matches[0][0]
         
 
 movies = [ 'Moana', 'Frying Nemo', 'Pocahontas', 'ToyStory', 'LionKing', 'Frozen' ]
@@ -29,5 +35,6 @@ reviewers = {
 my_picks = [5, 10, 3, 7, 9, 7]
 
 matchmaker = Recommender(reviewers, my_picks)
-favorite_review = matchmaker.make_me_a_match()
+favorite_reviewer = matchmaker.make_me_a_match()
+print favorite_reviewer
 
