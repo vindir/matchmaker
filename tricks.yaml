@@ -1,0 +1,4 @@
+tricks:
+- watchdog.tricks.ShellCommandTrick:
+    patterns: ["*.py"]
+    shell_command: 'python my_recommendations.py'
