@@ -1,12 +1,14 @@
-# matchmaker
-Recommender group project programmed mob-style over lunches at Pindrop.  The
-lesson to learn from this code is the effectiveness and simplicity of using
-euclidean distance.  What you'll find in the Recommender class is a succint
-example of a 'collaborative filtering' style recommendation engine.  This is
-extremely basic compared to a modern analytical recomender system and in a
-whole different domain from machine learning based systems, but what is
-interesting is that the results obtained here are only marginally worse than
-those we could obtain given much more complex and involved methodologies.
+# MatchMaker
+This is a recommender engine group project programmed mob-style over lunches at
+Pindrop. The lesson to learn from this code is the effectiveness and simplicity
+of using euclidean distance to create a "collaborative filtering" style engine.
+
+What you'll find in the Recommender class is a succint example of a
+'collaborative filtering' style recommendation engine.  This is extremely basic
+compared to a modern analytical recomender system and in a whole different
+domain from machine learning based systems, but what is interesting is that the
+results obtained here are only marginally worse than those we could obtain given
+much more complex and involved methodologies.
 
 To see the current code in action run `python ./my_recommendations.py`
 
