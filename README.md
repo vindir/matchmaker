@@ -13,16 +13,19 @@ much more complex and involved methodologies.
 To see the current code in action run `python ./my_recommendations.py`
 
 ## Definitions:
+```
 movie_rating tuples: (movie_name, rating)
 list of movie_rating tuples: [(movie_name, rating), (movie_name, rating), (movie_name, rating)]
+```
 
 ## Data Structures:
-
+```
 Data set containing all ratings of all movie watchers:
 dataset = {
            "Claudia" : [('Moana', 5), ('Frying Nemo', 6),
            "Kenneth" : [('Moana', 7), ('Full Metal Racket', 5)
           }
+```
 
 ### Item-Item Correlations:
 
@@ -33,6 +36,7 @@ users.
 Correlations are generated at runtime.  Otherwise we'd build a matrix
 or possibly develop a kd-tree.
 
+```
 example = [('Kenneth', 5.830951894845301),
            ('Joe', 6.164414002968976),
            (Janice', 6.4031242374328485),
@@ -40,6 +44,7 @@ example = [('Kenneth', 5.830951894845301),
            ('Claudia', 8.602325267042627),
            ('Peter', 10.392304845413264)
           ]
+```
 
 ## Execution Pseudo Flows:
 
